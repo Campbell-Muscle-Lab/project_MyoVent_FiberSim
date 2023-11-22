@@ -1,0 +1,16 @@
+{
+    "MyoVent_batch": {
+        "MyoVentCpp_exe": {
+            "exe_file": "d:/ken/github/campbellmusclelab/models/myovent/code/myoventcpp/bin/myoventcpp.exe"
+        },
+        "job": [
+            {
+                "model_file": "D:\\Ken\\GitHub\\CampbellMuscleLab\\Projects\\project_myovent_fibersim\\base\\model_fs.json",
+                "options_file": "D:\\Ken\\GitHub\\CampbellMuscleLab\\Projects\\project_myovent_fibersim\\base\\options.json",
+                "protocol_file": "D:\\Ken\\GitHub\\CampbellMuscleLab\\Projects\\project_myovent_fibersim\\base\\protocol.json",
+                "results_file": "D:\\Ken\\GitHub\\CampbellMuscleLab\\Projects\\project_myovent_fibersim\\sim_data\\1\\sim_output.txt",
+                "output_handler_file": "D:\\Ken\\GitHub\\CampbellMuscleLab\\Projects\\project_myovent_fibersim\\base\\output_handler.json"
+            }
+        ]
+    }
+}

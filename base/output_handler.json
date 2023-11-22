@@ -1,0 +1,8 @@
+{
+    "templated_images": [
+        {
+            "template_file_string": "D:\\Ken\\GitHub\\CampbellMuscleLab\\Projects\\project_myovent_fibersim\\templates\\template_summary_line.json",
+            "output_file_string": "D:\\Ken\\GitHub\\CampbellMuscleLab\\Projects\\project_myovent_fibersim\\sim_data\\1\\test"
+        }
+    ]
+}

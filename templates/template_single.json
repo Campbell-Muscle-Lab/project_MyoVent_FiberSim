@@ -1,0 +1,97 @@
+{
+    "layout":
+    {
+        "fig_width": 4,
+        "top_margin": 0.25,
+        "left_margin": 0,
+        "right_margin": 0,
+        "panel_height": 2.0,
+        "grid_wspace": 0.5,
+        "grid_hspace": 0.65
+    },
+    "x_display":{
+        "global_x_field": "time",
+        "label": "Time (s)",
+        "ticks": [18, 19]
+    },
+    "processing":{
+        "line_rel_width": 0.01
+    },
+    "formatting":
+    {
+        "x_label_fontsize": 9,
+        "y_label_fontsize": 9,
+        "y_label_offset": -0.4,
+        "tick_fontsize": 9,
+        "legend_fontsize": 7,
+        "legend_bbox_to_anchor": [0.9, 0.5],
+        "legend_frame_alpha": 0.65,
+        "patch_alpha": 0.3
+    },
+    "panels":
+    [
+        {
+            "column": 1,
+            "y_info":
+            {
+                "label": "Ventricular\npressure\n(mmHg)",
+                "series":
+                [
+                    {
+                        "field": "pressure_0",
+                        "style": "line",
+                        "field_label": "Pressure"
+                    }
+                ]
+            }
+        },
+        {
+            "column": 1,
+            "y_info":
+            {
+                "label": "Arterial\npressure\n(mmHg)",
+                "series":
+                [
+                    {
+                        "field": "pressure_2",
+                        "style": "line",
+                        "field_label": "Pressure"
+                    },
+                    {
+                        "field": "baro_P_set",
+                        "field_label": "P_set"
+                    }
+                ]
+            }
+        },
+        {
+            "column": 1,
+            "y_info":
+            {
+                "label": "Ventricular\nvolume\n(ml)",
+                "series":
+                [
+                    {
+                        "field": "volume_0",
+                        "style": "line"
+                    }
+                ]
+            }
+        },
+        {
+            "column": 1,
+            "y_info":
+            {
+                "label": "Ventricular\nvolume\n(ml)",
+                "scaling_type": "close_fit",
+                "series":
+                [
+                    {
+                        "field": "hs_length",
+                        "style": "line"
+                    }
+                ]
+            }
+        }
+    ]
+}
