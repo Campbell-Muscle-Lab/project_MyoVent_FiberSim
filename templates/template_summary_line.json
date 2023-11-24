@@ -284,12 +284,12 @@
                 "series":
                 [
                     {
-                        "field": "myof_a_off",
+                        "field": "fs_a_pop_0",
                         "field_label": "OFF",
                         "style": "line"
                     },
                     {
-                        "field": "myof_a_on",
+                        "field": "fs_a_pop_1",
                         "field_label": "ON",
                         "style": "line"
                     }
@@ -376,19 +376,6 @@
                 [
                     {
                         "field": "vent_stroke_energy_used_J"
-                    }
-                ]
-            }
-        },
-        {
-            "column": 4,
-            "y_info":
-            {
-                "label": "Efficiency",
-                "series":
-                [
-                    {
-                        "field": "vent_efficiency"
                     }
                 ]
             }
@@ -598,7 +585,7 @@
                 "series":
                 [
                     {
-                        "field": "myof_stress_int_pas"
+                        "field": "fs_stress_titin"
                     },
                     {
                         "reference": 150

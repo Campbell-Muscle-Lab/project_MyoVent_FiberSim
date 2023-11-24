@@ -26,7 +26,7 @@
         "thick_wall_approximation": "True"
     },
     "results": {
-        "beat_length_s": 0.7,
+        "beat_length_s": 3,
         "summary_time_step_s": 0.01
     }
 }

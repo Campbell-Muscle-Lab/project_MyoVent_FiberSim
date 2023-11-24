@@ -5,6 +5,15 @@
     "circulation": {
         "blood_volume": 4.5,
         "compartments": {
+            "xresistance": [
+                10,
+                20,
+                40,
+                800,
+                250,
+                50,
+                20
+            ],
             "resistance": [
                 10,
                 20,
@@ -64,7 +73,7 @@
         },
         "heart_rate": {
             "xt_RR_interval_s": 0.75,
-            "t_RR_interval_s": 2
+            "t_RR_interval_s": 1
         },
         "half_sarcomere": {
             "reference_hs_length": 1100,
@@ -93,12 +102,12 @@
                         "no_of_half_sarcomeres": 1,
                         "no_of_myofibrils": 1,
                         "initial_hs_length": 900,
-                        "prop_fibrosis": 0.0,
+                        "prop_fibrosis": 0.1,
                         "prop_myofilaments": 0.5,
                         "m_filament_density": 0.407e15
                     },
                     "lattice_parameters": {
-                        "viscosity": 1e0
+                        "viscosity": 0
                     },
                     "thick_structure": {
                         "m_n": 4,
@@ -144,9 +153,9 @@
                     },
                     "extracellular_parameters": {
                         "e_passive_mode": "exponential",
-                        "e_sigma": 0,
-                        "e_L": 50,
-                        "e_slack_length": 800
+                        "e_sigma": 1e3,
+                        "e_L": 70,
+                        "e_slack_length": 900
                     },
                     "m_parameters": {
                         "m_k_cb": 0.001,
@@ -182,7 +191,7 @@
                                 {
                                 "new_state": 3,
                                 "rate_type": "gaussian_hsl",
-                                "rate_parameters": [ 200 ]
+                                "rate_parameters": [ 0 ]
                                 }
                             ]
                             },
@@ -194,12 +203,12 @@
                                 {
                                 "new_state": 2,
                                 "rate_type": "poly",
-                                "rate_parameters": [ 500, 10, 4]
+                                "rate_parameters": [ 100, 1, 4]
                                 },
                                 {
                                     "new_state": 4,
                                     "rate_type": "constant",
-                                    "rate_parameters": [ 200 ]
+                                    "rate_parameters": [ 100 ]
                                 }
                             ]
                             },
@@ -210,8 +219,9 @@
                                 "transition": [
                                 {
                                     "new_state": 2,
+                                    "uses_ATP": 1,
                                     "rate_type": "exp_wall",
-                                    "rate_parameters": [ 75, 1, 4, 7]
+                                    "rate_parameters": [ 100, 0.5, 4, 7]
                                 }
                                 ]
                             }
@@ -395,25 +405,6 @@
         "baro_k_drive": 30,
         "baro_k_recov": 0.1,
         "baro_P_compartment": 2,
-        "xcontrol":
-        [
-            {
-                "level": "myofilaments",
-                "variable": "m_state_1_trans_1_param_1",
-                "k_control": 0.075,
-                "k_recov": 0.1,
-                "para_factor": 0.5,
-                "symp_factor": 2
-            },
-            {
-                "level": "myofilaments",
-                "variable": "k_on",
-                "k_control": 0.075,
-                "k_recov": 0.1,
-                "para_factor": 2,
-                "symp_factor": 0.5
-            }
-        ],
         "control": [
             {
                 "level": "heart_rate",
@@ -438,6 +429,22 @@
                 "k_recov": 0.1,
                 "para_factor": 0.5,
                 "symp_factor": 2
+            },
+            {
+                "level": "FiberSim",
+                "variable": "m_state_1_trans_1_param_1",
+                "k_control": 0.075,
+                "k_recov": 0.1,
+                "para_factor": 0.5,
+                "symp_factor": 2
+            },
+            {
+                "level": "FiberSim",
+                "variable": "k_on",
+                "k_control": 0.075,
+                "k_recov": 0.1,
+                "para_factor": 2,
+                "symp_factor": 0.5
             },
             {
                 "level": "circulation",
