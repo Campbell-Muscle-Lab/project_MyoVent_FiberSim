@@ -5,7 +5,7 @@
         },
         "job": [
             {
-                "model_file": "D:\\Ken\\GitHub\\CampbellMuscleLab\\Projects\\project_myovent_fibersim\\base\\model_fs.json",
+                "model_file": "D:\\Ken\\GitHub\\CampbellMuscleLab\\Projects\\project_myovent_fibersim\\base\\model_fs_smooth.json",
                 "options_file": "D:\\Ken\\GitHub\\CampbellMuscleLab\\Projects\\project_myovent_fibersim\\base\\options.json",
                 "protocol_file": "D:\\Ken\\GitHub\\CampbellMuscleLab\\Projects\\project_myovent_fibersim\\base\\protocol.json",
                 "results_file": "D:\\Ken\\GitHub\\CampbellMuscleLab\\Projects\\project_myovent_fibersim\\sim_data\\1\\sim_output.txt",

@@ -40,6 +40,9 @@
                         "field": "pressure_0",
                         "style": "line",
                         "field_label": "Pressure"
+                    },
+                    {
+                        "reference": 0
                     }
                 ]
             }
@@ -209,6 +212,38 @@
             }
         },
         {
+            "column": 2,
+            "y_info":
+            {
+                "label": "FiberSim\nmuscle\nsc extension\n(nm)",
+                "series":
+                [
+                    {
+                        "field": "fs_sc_extension"
+                    }
+                ]
+            }
+        },
+        {
+            "column": 2,
+            "y_info":
+            {
+                "label": "FiberSim\nmuscle",
+                "scaling_type": "close_fit",
+                "series":
+                [
+                    {
+                        "field": "fs_hs_length",
+                        "field_label": "HSL"
+                    },
+                    {
+                        "field": "fs_muscle_length",
+                        "field_label": "ML"
+                    }
+                ]
+            }
+        },
+        {
             "column": 3,
             "y_info":
             {
@@ -217,7 +252,7 @@
                 "series":
                 [
                     {
-                        "field": "hs_length",
+                        "field": "fs_muscle_length",
                         "style": "line"
                     }
                 ]
@@ -246,7 +281,7 @@
                 "series":
                 [
                     {
-                        "field": "fs_stress_total",
+                        "field": "muscle_stress",
                         "style": "line",
                         "scaling_factor": 1e-3
                     }
@@ -261,13 +296,13 @@
                 "series":
                 [
                     {
-                        "field": "fs_stress_titin",
+                        "field": "fs_hs_stress_titin",
                         "field_label": "Int pas",
                         "style": "line",
                         "scaling_factor": 1e-3
                     },
                     {
-                        "field": "fs_stress_extracellular",
+                        "field": "fs_hs_stress_extracellular",
                         "field_label": "Ext pas",
                         "style": "line",
                         "scaling_factor": 1e-3
@@ -284,12 +319,12 @@
                 "series":
                 [
                     {
-                        "field": "fs_a_pop_0",
+                        "field": "fs_hs_a_pop_0",
                         "field_label": "OFF",
                         "style": "line"
                     },
                     {
-                        "field": "fs_a_pop_1",
+                        "field": "fs_hs_a_pop_1",
                         "field_label": "ON",
                         "style": "line"
                     }
@@ -305,22 +340,22 @@
                 "series":
                 [
                     {
-                        "field": "fs_m_pop_0",
+                        "field": "fs_hs_m_pop_0",
                         "field_label": "SRX",
                         "style": "line"
                     },
                     {
-                        "field": "fs_m_pop_1",
+                        "field": "fs_hs_m_pop_1",
                         "field_label": "DRX",
                         "style": "line"
                     },
                     {
-                        "field": "fs_m_pop_2",
+                        "field": "fs_hs_m_pop_2",
                         "field_label": "PRE",
                         "style": "line"
                     },
                     {
-                        "field": "fs_m_pop_3",
+                        "field": "fs_hs_m_pop_3",
                         "field_label": "POST",
                         "style": "line"
                     }
@@ -449,11 +484,11 @@
             "column": 5,
             "y_info":
             {
-                "label": "hs [ATP]\n(M)",
+                "label": "muscle [ATP]\n(M)",
                 "series":
                 [
                     {
-                        "field": "hs_ATP_concentration"
+                        "field": "muscle_ATP_concentration"
                     },
                     {
                         "reference": 0.007
@@ -585,7 +620,7 @@
                 "series":
                 [
                     {
-                        "field": "fs_stress_titin"
+                        "field": "fs_hs_stress_titin"
                     },
                     {
                         "reference": 150
@@ -638,6 +673,92 @@
                 [
                     {
                         "field": "vent_wall_volume"
+                    }
+                ]
+            }
+        },
+        {
+            "column": 7,
+            "y_info":
+            {
+                "label": "Pressure",
+                "ticks": [-10, 20],
+                "series":
+                [
+                    {
+                        "field": "pressure_0",
+                        "field_label": "Ventricle"
+                    },
+                    {
+                        "field": "pressure_6",
+                        "field_label": "Veins"
+                    },
+                    {
+                        "reference": 0
+                    }
+                ]
+            }
+        },
+        {
+            "column": 7,
+            "y_info":
+            {
+                "label": "Mitral\nvalve\nposition",
+                "series":
+                [
+                    {
+                        "field": "mitral_valve_pos",
+                        "style": "line"
+                    }
+                ]
+            }
+        },
+        {
+            "column": 7,
+            "y_info":
+            {
+                "label": "Mitral\nflow",
+                "series":
+                [
+                    {
+                        "field": "flow_0",
+                        "style": "line"
+                    },
+                    {
+                        "reference": 0
+                    }
+                ]
+            }
+        },
+        {
+            "column": 7,
+            "y_info":
+            {
+                "label": "Forces",
+                "series":
+                [
+                    {
+                        "field": "fs_hs_stress_extracellular",
+                        "style": "line",
+                        "field_label": "Extracellular"
+                    },
+                    {
+                        "field": "fs_hs_stress_titin",
+                        "style": "line",
+                        "field_label": "Titin"
+                    },
+                    {
+                        "field": "fs_hs_stress_viscous",
+                        "style": "line",
+                        "field_label": "Viscous"
+                    },
+                    {
+                        "field": "fs_hs_stress_total",
+                        "style": "line",
+                        "field_label": "Total"
+                    },
+                    {
+                        "reference": 0
                     }
                 ]
             }
