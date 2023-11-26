@@ -33,7 +33,7 @@
                 0.08
             ],
             "slack_volume": [
-                0.03,
+                0.05,
                 0.3,
                 0.3,
                 0.1,
@@ -60,20 +60,20 @@
         "valves": {
             "aortic": {
                 "name": "aortic",
-                "mass": 1e-03,
-                "eta": 0,
-                "k": 0.1
+                "mass": 0.0005,
+                "eta": 0.005,
+                "k": 0.01
             },
             "mitral": {
                 "name": "mitral",
-                "mass": 1e-03,
-                "eta": 0,
-                "k": 0.1
+                "mass": 0.0005,
+                "eta": 0.005,
+                "k": 0.001
             }
         },
         "heart_rate": {
             "xt_RR_interval_s": 0.75,
-            "t_RR_interval_s": 1
+            "t_RR_interval_s": 1.0
         },
         "half_sarcomere": {
             "reference_hs_length": 1100,
@@ -88,209 +88,227 @@
                 "k_serca": 8.0,
                 "t_open": 0.01
             },
-            "mitochondria": {
+            "mitochondria":
+            {
                 "ATP_generation_rate": 11.0
             },
-            "myofilaments": {
+            "myofilaments":
+            {
                 "model_type": "FiberSim",
                 "model":
                 {
-                    "FiberSim": {
+                    "version":
+                    {
                        "version": "2.1.0"
                     },
-                    "muscle": {
+                    "muscle":
+                    {
                         "no_of_half_sarcomeres": 1,
                         "no_of_myofibrils": 1,
-                        "initial_hs_length": 1000,
-                        "prop_fibrosis": 0.1,
-                        "prop_myofilaments": 0.5,
-                        "m_filament_density": 0.407e15,
-                        "sc_k_stiff": 5e2
-                    },
-                    "lattice_parameters": {
-                        "viscosity": 1e-1
-                    },
-                    "thick_structure": {
-                        "m_n": 4,
-                        "m_crowns_per_filament": 54,
-                        "m_hubs_per_crown": 3,
-                        "m_myosins_per_hub": 2,
-                        "m_inter_crown_rest_length": 13.5,
-                        "m_lambda": 80.0,
-                        "m_starting_angle": 0.0,
-                        "m_inter_crown_twist": 40.0,
-                        "m_within_hub_twist": 20.0
-                    },
-                    "thin_structure": {
-                        "a_strands_per_filament": 2,
-                        "a_regulatory_units_per_strand": 27,
-                        "a_bs_per_unit": 7,
-                        "a_inter_bs_rest_length": 5.375,
-                        "a_inter_bs_twist": 25.7143,
-                        "a_bs_per_node": 2
-                    },
-                    "titin_structure": {
-                          "t_attach_a_node": 21,
-                          "t_attach_m_node": 54
-                    },
-                    "thin_parameters": {
-                        "a_no_of_bs_states": 2,
-                        "a_k_stiff": 10,
-                        "a_k_on": 2e8,
-                        "a_k_off": 100,
-                        "a_k_coop": 10
-                    },
-                    "thick_parameters":
-                    {
-                        "m_k_stiff": 10
-                    },
-                    "titin_parameters": {
-                        "t_passive_mode": "exponential",
-                        "t_k_stiff": 5.0e-6,
-                        "t_offset": 0,
-                        "t_slack_length": 0,
-                        "t_sigma":1e-5,
-                        "t_L": 90
-                    },
-                    "extracellular_parameters": {
-                        "e_passive_mode": "exponential",
-                        "e_sigma": 1e2,
-                        "e_L": 70,
-                        "e_slack_length": 900
-                    },
-                    "m_parameters": {
-                        "m_k_cb": 0.001,
-                        "m_isotype_proportions": [ 1 ]
-                    },
-                    "m_kinetics": [
+                        "series_component":
                         {
-                        "no_of_states": 4,
-                        "max_no_of_transitions": 2,
-                        "scheme": [
-                            {
-                            "number": 1,
-                            "type": "S",
-                            "extension": 0,
-                            "transition": [
-                                {
-                                "new_state": 2,
-                                "rate_type": "force_and_mybpc_dependent",
-                                "rate_parameters": [ 40, 100, 1, 1, 0.0, 0.0, 1, 1]
-                                }
-                            ]
-                            },
-                            {
-                            "number": 2,
-                            "type": "D",
-                            "extension": 0,
-                            "transition": [
-                                {
-                                "new_state": 1,
-                                "rate_type": "constant",
-                                "rate_parameters": [ 500 ]
-                                },
-                                {
-                                "new_state": 3,
-                                "rate_type": "gaussian_hsl",
-                                "rate_parameters": [ 400]
-                                }
-                            ]
-                            },
-                            {
-                            "number": 3,
-                            "type": "A",
-                            "extension": 0.0,
-                            "transition": [
-                                {
-                                "new_state": 2,
-                                "rate_type": "constant",
-                                "rate_parameters": [ 100 ]
-                                },
-                                {
-                                    "new_state": 4,
-                                    "rate_type": "constant",
-                                    "rate_parameters": [ 500 ]
-                                }
-                            ]
-                            },
-                            {
-                                "number": 4,
-                                "type": "A",
-                                "extension": 5.0,
-                                "transition": [
-                                {
-                                    "new_state": 2,
-                                    "uses_ATP": 1,
-                                    "rate_type": "constant",
-                                    "rate_parameters": [ 200]
-                                }
-                                ]
-                            }
-                        ]
-                        }
-                    ],
-                    "mybpc_structure": {
-                        "c_thick_proximal_node": 10,
-                        "c_thick_stripes": 9,
-                        "c_thick_node_spacing": 3,
-                        "c_mols_per_node": 3,
-                        "c_starting_angle": 10.0,
-                        "c_inter_stripe_twist": 0.0,
-                        "c_sd_angle_deviation": 30
-                    },
-                    "mybpc_parameters": {
-                        "c_k_stiff": 0.0001,
-                        "c_isotype_proportions": [ 1 ]
-                    },
-                    "c_kinetics": [
+                            "sc_k_stiff": 1e4,
+                            "sc_eta": 1000.0,
+                            "xsc_eta": 0.0
+                        },
+                        "half_sarcomere":
                         {
-                        "no_of_states": 3,
-                        "max_no_of_transitions": 2,
-                        "scheme": [
+                            "material":
                             {
-                            "number": 1,
-                            "type": "D",
-                            "extension": 0,
-                            "transition": [
-                                {
-                                "new_state": 2,
-                                "rate_type": "constant",
-                                "rate_parameters": [ 10 ]
-                                },
-                                {
-                                    "new_state": 3,
-                                    "rate_type": "gaussian_pc",
-                                    "rate_parameters": [ 10, 0.001]
-                                }
-                            ]
+                                "prop_fibrosis": 0.1,
+                                "initial_hs_length": 1000,
+                                "prop_myofilaments": 0.6,
+                                "m_filament_density": 0.407e15
                             },
+                            "lattice_parameters":
                             {
-                            "number": 2,
-                            "type": "D",
-                            "extension": 0.0,
-                            "transition": [
-                                {
-                                "new_state": 1,
-                                "rate_type": "constant",
-                                "rate_parameters": [ 100 ]
-                                }            
-                            ]
+                                "viscosity": 1e-1
                             },
+                            "thick_structure": {
+                                "m_n": 4,
+                                "m_crowns_per_filament": 54,
+                                "m_hubs_per_crown": 3,
+                                "m_myosins_per_hub": 2,
+                                "m_inter_crown_rest_length": 13.5,
+                                "m_lambda": 80.0,
+                                "m_starting_angle": 0.0,
+                                "m_inter_crown_twist": 40.0,
+                                "m_within_hub_twist": 20.0
+                            },
+                            "thin_structure": {
+                                "a_strands_per_filament": 2,
+                                "a_regulatory_units_per_strand": 27,
+                                "a_bs_per_unit": 7,
+                                "a_inter_bs_rest_length": 5.375,
+                                "a_inter_bs_twist": 25.7143,
+                                "a_bs_per_node": 2
+                            },
+                            "titin_structure": {
+                                "t_attach_a_node": 21,
+                                "t_attach_m_node": 54
+                            },
+                            "thin_parameters": {
+                                "a_no_of_bs_states": 2,
+                                "a_k_stiff": 10,
+                                "a_k_on": 5e8,
+                                "a_k_off": 200,
+                                "a_k_coop": 20
+                            },
+                            "thick_parameters":
                             {
-                                "number": 3,
-                                "type": "A",
-                                "extension": 0.0,
-                                "transition": [
+                                "m_k_stiff": 10
+                            },
+                            "titin_parameters": {
+                                "t_passive_mode": "exponential",
+                                "t_k_stiff": 7e-6,
+                                "t_offset": 0,
+                                "t_slack_length": 0,
+                                "t_sigma":1e-4,
+                                "t_L": 100
+                            },
+                            "extracellular_parameters": {
+                                "e_passive_mode": "exponential",
+                                "e_sigma": 1e3,
+                                "e_L": 90,
+                                "e_slack_length": 950
+                            },
+                            "m_parameters": {
+                                "m_k_cb": 0.001,
+                                "m_isotype_proportions": [ 1 ]
+                            },
+                            "m_kinetics": [
+                                {
+                                "no_of_states": 4,
+                                "max_no_of_transitions": 2,
+                                "scheme": [
                                     {
-                                        "new_state": 1,
-                                        "rate_type": "poly",
-                                        "rate_parameters": [100, 0.01, 2]
+                                    "number": 1,
+                                    "type": "S",
+                                    "extension": 0,
+                                    "transition": [
+                                        {
+                                            "new_state": 2,
+                                            "rate_type": "force_dependent",
+                                            "rate_parameters": [ 40, 100]
+                                        }
+                                    ]
+                                    },
+                                    {
+                                    "number": 2,
+                                    "type": "D",
+                                    "extension": 0,
+                                    "transition": [
+                                        {
+                                            "new_state": 1,
+                                            "rate_type": "constant",
+                                            "rate_parameters": [ 400 ]
+                                        },
+                                        {
+                                            "new_state": 3,
+                                            "rate_type": "gaussian_hsl",
+                                            "rate_parameters": [ 300]
+                                        }
+                                    ]
+                                    },
+                                    {
+                                    "number": 3,
+                                    "type": "A",
+                                    "extension": 0.0,
+                                    "transition": [
+                                        {
+                                            "new_state": 2,
+                                            "rate_type": "poly",
+                                            "rate_parameters": [ 400, 1, 4]
+                                        },
+                                        {
+                                            "new_state": 4,
+                                            "rate_type": "constant",
+                                            "rate_parameters": [ 500 ]
+                                        }
+                                    ]
+                                    },
+                                    {
+                                        "number": 4,
+                                        "type": "A",
+                                        "extension": 5.0,
+                                        "transition": [
+                                        {
+                                            "new_state": 2,
+                                            "uses_ATP": 1,
+                                            "xrate_type": "constant",
+                                            "xrate_parameters": [ 200 ],
+                                            "rate_type": "exp_wall",
+                                            "rate_parameters": [ 350, 0.5, 4, 7]
+                                        }
+                                        ]
                                     }
                                 ]
-                            }
-                        ]
+                                }
+                            ],
+                            "mybpc_structure": {
+                                "c_thick_proximal_node": 10,
+                                "c_thick_stripes": 9,
+                                "c_thick_node_spacing": 3,
+                                "c_mols_per_node": 3,
+                                "c_starting_angle": 10.0,
+                                "c_inter_stripe_twist": 0.0,
+                                "c_sd_angle_deviation": 30
+                            },
+                            "mybpc_parameters": {
+                                "c_k_stiff": 0.0001,
+                                "c_isotype_proportions": [ 1 ]
+                            },
+                            "c_kinetics": [
+                                {
+                                "no_of_states": 3,
+                                "max_no_of_transitions": 2,
+                                "scheme": [
+                                    {
+                                    "number": 1,
+                                    "type": "D",
+                                    "extension": 0,
+                                    "transition": [
+                                        {
+                                            "new_state": 2,
+                                            "rate_type": "constant",
+                                            "rate_parameters": [ 0 ]
+                                        },
+                                        {
+                                            "new_state": 3,
+                                            "rate_type": "gaussian_pc",
+                                            "rate_parameters": [ 0, 0.001]
+                                        }
+                                    ]
+                                    },
+                                    {
+                                    "number": 2,
+                                    "type": "D",
+                                    "extension": 0.0,
+                                    "transition": [
+                                        {
+                                        "new_state": 1,
+                                        "rate_type": "constant",
+                                        "rate_parameters": [ 100 ]
+                                        }            
+                                    ]
+                                    },
+                                    {
+                                        "number": 3,
+                                        "type": "A",
+                                        "extension": 0.0,
+                                        "transition": [
+                                            {
+                                                "new_state": 1,
+                                                "rate_type": "poly",
+                                                "rate_parameters": [100, 0.01, 2]
+                                            }
+                                        ]
+                                    }
+                                ]
+                                }
+                            ]
                         }
-                    ]
+                    }
                 },
                 "xmodel":
                 {

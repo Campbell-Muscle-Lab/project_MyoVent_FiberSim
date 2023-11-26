@@ -219,7 +219,12 @@
                 "series":
                 [
                     {
-                        "field": "fs_sc_extension"
+                        "field": "fs_sc_extension",
+                        "field_label": "sc_ext"
+                    },
+                    {
+                        "field": "fs_sc_last_extension",
+                        "field_label": "sc_last_ext"
                     }
                 ]
             }
@@ -306,6 +311,10 @@
                         "field_label": "Ext pas",
                         "style": "line",
                         "scaling_factor": 1e-3
+                    },
+                    {
+                        "reference": 0,
+                        "field_label": "Zero"
                     }
                 ]
             }
@@ -357,6 +366,32 @@
                     {
                         "field": "fs_hs_m_pop_3",
                         "field_label": "POST",
+                        "style": "line"
+                    }
+                ]
+            }
+        },
+        {
+            "column": 3,
+            "y_info":
+            {
+                "label": "C_prot",
+                "ticks": [0, 1],
+                "series":
+                [
+                    {
+                        "field": "fs_hs_c_pop_0",
+                        "field_label": "c_0",
+                        "style": "line"
+                    },
+                    {
+                        "field": "fs_hs_c_pop_1",
+                        "field_label": "c_1",
+                        "style": "line"
+                    },
+                    {
+                        "field": "fs_hs_c_pop_2",
+                        "field_label": "c_2",
                         "style": "line"
                     }
                 ]
@@ -450,6 +485,28 @@
                 [
                     {
                         "field": "vent_chamber_height"
+                    }
+                ]
+            }
+        },
+        {
+            "column": 4,
+            "y_info":
+            {
+                "label": "CB force",
+                "series":
+                [
+                    {
+                        "field": "fs_muscle_stress",
+                        "field_label": "fs_muscle_stress"
+                    },
+                    {
+                        "field": "fs_hs_stress_total",
+                        "field_label": "fs_hs_stress_total"
+                    },
+                    {
+                        "field": "muscle_stress",
+                        "field_label": "muscle_stress"
                     }
                 ]
             }
@@ -573,6 +630,28 @@
             }
         },
         {
+            "column": 5,
+            "y_info":
+            {
+                "label": "Pressure",
+                "ticks": [-10, 20],
+                "series":
+                [
+                    {
+                        "field": "pressure_0",
+                        "field_label": "Ventricle"
+                    },
+                    {
+                        "field": "pressure_6",
+                        "field_label": "Veins"
+                    },
+                    {
+                        "reference": 0
+                    }
+                ]
+            }
+        },
+        {
             "column": 6,
             "y_info":
             {
@@ -673,92 +752,6 @@
                 [
                     {
                         "field": "vent_wall_volume"
-                    }
-                ]
-            }
-        },
-        {
-            "column": 7,
-            "y_info":
-            {
-                "label": "Pressure",
-                "ticks": [-10, 20],
-                "series":
-                [
-                    {
-                        "field": "pressure_0",
-                        "field_label": "Ventricle"
-                    },
-                    {
-                        "field": "pressure_6",
-                        "field_label": "Veins"
-                    },
-                    {
-                        "reference": 0
-                    }
-                ]
-            }
-        },
-        {
-            "column": 7,
-            "y_info":
-            {
-                "label": "Mitral\nvalve\nposition",
-                "series":
-                [
-                    {
-                        "field": "mitral_valve_pos",
-                        "style": "line"
-                    }
-                ]
-            }
-        },
-        {
-            "column": 7,
-            "y_info":
-            {
-                "label": "Mitral\nflow",
-                "series":
-                [
-                    {
-                        "field": "flow_0",
-                        "style": "line"
-                    },
-                    {
-                        "reference": 0
-                    }
-                ]
-            }
-        },
-        {
-            "column": 7,
-            "y_info":
-            {
-                "label": "Forces",
-                "series":
-                [
-                    {
-                        "field": "fs_hs_stress_extracellular",
-                        "style": "line",
-                        "field_label": "Extracellular"
-                    },
-                    {
-                        "field": "fs_hs_stress_titin",
-                        "style": "line",
-                        "field_label": "Titin"
-                    },
-                    {
-                        "field": "fs_hs_stress_viscous",
-                        "style": "line",
-                        "field_label": "Viscous"
-                    },
-                    {
-                        "field": "fs_hs_stress_total",
-                        "style": "line",
-                        "field_label": "Total"
-                    },
-                    {
-                        "reference": 0
                     }
                 ]
             }
