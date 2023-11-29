@@ -56,7 +56,7 @@
         "wall_density": 1055,
         "wall_volume": 0.1,
         "z_scale": 4,
-        "z_exp": 2.75,
+        "z_exp": 1.5,
         "valves": {
             "aortic": {
                 "name": "aortic",
@@ -160,7 +160,7 @@
                             },
                             "titin_parameters": {
                                 "t_passive_mode": "exponential",
-                                "t_k_stiff": 7e-6,
+                                "t_k_stiff": 1e-6,
                                 "t_offset": 0,
                                 "t_slack_length": 0,
                                 "t_sigma":1e-4,
@@ -168,9 +168,9 @@
                             },
                             "extracellular_parameters": {
                                 "e_passive_mode": "exponential",
-                                "e_sigma": 1e3,
-                                "e_L": 90,
-                                "e_slack_length": 950
+                                "e_sigma": 2e3,
+                                "e_L": 100,
+                                "e_slack_length": 1050
                             },
                             "m_parameters": {
                                 "m_k_cb": 0.001,
@@ -188,8 +188,8 @@
                                     "transition": [
                                         {
                                             "new_state": 2,
-                                            "rate_type": "force_dependent",
-                                            "rate_parameters": [ 40, 100]
+                                            "rate_type": "force_and_mybpc_dependent",
+                                            "rate_parameters": [ 40, 100, 1, 1, 0.5, 0.5, 1, 1]
                                         }
                                     ]
                                     },
@@ -206,7 +206,7 @@
                                         {
                                             "new_state": 3,
                                             "rate_type": "gaussian_hsl",
-                                            "rate_parameters": [ 300]
+                                            "rate_parameters": [ 250]
                                         }
                                     ]
                                     },
@@ -218,7 +218,7 @@
                                         {
                                             "new_state": 2,
                                             "rate_type": "poly",
-                                            "rate_parameters": [ 400, 1, 4]
+                                            "rate_parameters": [ 250, 1, 4]
                                         },
                                         {
                                             "new_state": 4,
@@ -238,7 +238,7 @@
                                             "xrate_type": "constant",
                                             "xrate_parameters": [ 200 ],
                                             "rate_type": "exp_wall",
-                                            "rate_parameters": [ 350, 0.5, 4, 7]
+                                            "rate_parameters": [ 250, 0.5, 4, 7]
                                         }
                                         ]
                                     }
@@ -271,7 +271,7 @@
                                         {
                                             "new_state": 2,
                                             "rate_type": "constant",
-                                            "rate_parameters": [ 0 ]
+                                            "rate_parameters": [ 100 ]
                                         },
                                         {
                                             "new_state": 3,
@@ -421,7 +421,7 @@
     "baroreflex": {
         "baro_P_set": 90,
         "baro_S": 0.01,
-        "baro_k_drive": 30,
+        "baro_k_drive": 60,
         "baro_k_recov": 0.1,
         "baro_P_compartment": 2,
         "control": [
@@ -450,7 +450,7 @@
                 "symp_factor": 2
             },
             {
-                "level": "FiberSim",
+                "level": "FiberSim_half_sarcomere",
                 "variable": "m_state_1_trans_1_param_1",
                 "k_control": 0.075,
                 "k_recov": 0.1,
@@ -458,7 +458,7 @@
                 "symp_factor": 2
             },
             {
-                "level": "FiberSim",
+                "level": "FiberSim_half_sarcomere",
                 "variable": "k_on",
                 "k_control": 0.075,
                 "k_recov": 0.1,
@@ -484,13 +484,13 @@
         ]
     },
     "growth": {
-        "master_rate": 0.05,
+        "master_rate": 0.1,
         "control": [
             {
                 "type": "eccentric",
                 "level": "FiberSim_half_sarcomere",
                 "signal": "fs_stress_titin",
-                "set_point": 200,
+                "set_point": 525,
                 "prop_gain": 0.02,
                 "max_rate": 0.02
             },
@@ -499,8 +499,8 @@
                 "level": "muscle",
                 "signal": "muscle_ATP_concentration",
                 "set_point": 0.007,
-                "prop_gain": -0.25,
-                "deriv_gain": -25,
+                "prop_gain": -0.125,
+                "deriv_gain": -50,
                 "max_rate": 0.02
             }
         ]

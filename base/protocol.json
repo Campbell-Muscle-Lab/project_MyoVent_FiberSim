@@ -1,6 +1,28 @@
 {
     "protocol": {
         "time_step": 0.001,
-        "no_of_time_steps": 10010
-    }
+        "no_of_time_steps": 2000
+    },
+    "activation": [
+        {
+            "type": "baroreflex",
+            "t_start_s": 25,
+            "t_stop_s": 10000
+        },
+        {
+            "type": "growth",
+            "t_start_s": 4,
+            "t_stop_s": 10000
+        }
+    ],
+    "perturbation":
+    [
+        {
+            "class": "FiberSim_half_sarcomere",
+            "variable": "c_state_1_trans_1_param_1",
+            "t_start_s": 400,
+            "t_stop_s": 401,
+            "total_change": -80
+        }
+    ]
 }

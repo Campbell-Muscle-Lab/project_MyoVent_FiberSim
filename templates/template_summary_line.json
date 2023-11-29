@@ -702,7 +702,7 @@
                         "field": "fs_hs_stress_titin"
                     },
                     {
-                        "reference": 150
+                        "reference": 600
                     }
                 ]
             }

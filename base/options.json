@@ -34,6 +34,10 @@
     "hemi_vent": {
         "thick_wall_approximation": "True"
     },
+    "growth":
+    {
+        "deriv_points": 2500
+    },
     "results": {
         "beat_length_s": 3,
         "summary_time_step_s": 0.01
